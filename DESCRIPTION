@@ -1,0 +1,13 @@
+Package: vhatbfs
+Title: Implementazione degli Intervalli di Confidenza per i Dati RS
+Description: Implementazione delle formule dell'Ust per la stima degli intervalli di
+          confidenza con i dati RS. Si tratta principalmente di stimare degli intervalli
+          di confidenza di effettivi (stima della numerosità di una popolazione).
+Version: 0.0.1
+License: GPL-2
+Author: Gibo <gibo.gaf@gmail.com>
+Maintainer: Gibo <gibo.gaf@gmail.com>
+Depends: R (>= 2.10)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
