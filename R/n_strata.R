@@ -270,7 +270,7 @@ vhat3 <- function(x, mh, Nh, strata){
     v_strata[[i]] <- vhat_strata5(x[k], mh = mh[k], Nh = Nh[k])
   }
   
-  res <- sum(v_strata)
+  res <- sum(v_strata, na.rm = TRUE)
   
   res
 }
