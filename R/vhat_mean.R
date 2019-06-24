@@ -45,3 +45,23 @@ vhat_mean_strata <- function(y, weights, nPSU = NULL){
   
   as.numeric(crossprod(x * sqrt(scale)))
 }
+
+
+# Prova
+
+vhat_mean <- function(y, weights, nPSU = NULL, strata){
+  strata_unique <- unique(strata)
+  v_strata <- strata_weights <- 
+    vector(mode = "numeric", length = length(strata_unique))
+  
+  Nhat <- sum(weights)
+  
+  for(i in seq_along(v_strata)){
+    k <- strata == strata_unique[i]
+    v_strata[[i]] <- vhat_mean_strata(y[k], weights[k])
+    strata_weights[[i]] <- sum(weights[k]) / Nhat
+  }
+  
+  res <- sum(v_strata * strata_weights^2, na.rm = TRUE)
+  res
+}
