@@ -36,3 +36,10 @@ vhat_ratio <- function(numerator, denominator, weights, nh = NULL, strata){
   
   res
 }
+
+# d$numeratore <- (d$s == 1)
+# d$denominatore <- (d$s %in% c(1, 2))
+# with(d, vhat_ratio(numerator = numeratore, 
+#                    denominator = denominatore, 
+#                    weights = w, 
+#                    strata = xcat))
