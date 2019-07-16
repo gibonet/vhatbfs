@@ -21,14 +21,18 @@ vhat_ratio_strata <- function(numerator, denominator, weights, nh = NULL){
 
 vhat_ratio <- function(numerator, denominator, weights, nh = NULL, strata){
   strata_unique <- unique(strata)
-  v_strata <- vector(mode = "numeric", length = length(strata_unique))
+  v_strata <- strata_weights <- 
+    vector(mode = "numeric", length = length(strata_unique))
+  
+  Nhat <- sum(weights)
   
   for(i in seq_along(v_strata)){
     k <- strata == strata_unique[i]
     v_strata[[i]] <- vhat_ratio_strata(numerator[k], denominator[k], weights[k], nh[k])
+    strata_weights[[i]] <- sum(weights[k]) / Nhat
   }
   
-  res <- sum(v_strata)
+  res <- sum(v_strata * strata_weights^2, na.rm = TRUE)
   
   res
 }
