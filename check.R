@@ -33,6 +33,7 @@ library(usethis)
 use_testthat()
 
 use_test("n_strata")
+use_test("vhat_strata")
 
 
 # covr::package_coverage() ------------
