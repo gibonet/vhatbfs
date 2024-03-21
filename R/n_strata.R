@@ -30,8 +30,10 @@ n_strata <- function(data, weights, strata) {
 #'   il sottoinsieme dei dati la funzione indicatrice vale uno.
 #' @param weights stringa con il nome della colonna dei dati che contiene i
 #'   pesi individuali
-#' @param mh numero di osservazioni dello strato (vettore numerico di lunghezza uno).
-#' @param Nh stima degli effettivi dello strato (vettore numerico di lunghezza uno).
+#' @param mh numero di osservazioni dello strato (vettore numerico di 
+#'   lunghezza uno).
+#' @param Nh stima degli effettivi dello strato (vettore numerico di 
+#'   lunghezza uno).
 #'   In pratica è la somma dei pesi di campionamento dello strato.
 #'
 #' @examples
@@ -67,8 +69,10 @@ vhat_strata2 <- function(data, weights, mh, Nh) {
 #'
 #' @param x un vettore numerico con gli elementi di uno strato (di solito i
 #'   pesi di campionamento)
-#' @param mh numero di osservazioni dello strato (vettore numerico di lunghezza uno).
-#' @param Nh stima degli effettivi dello strato (vettore numerico di lunghezza uno).
+#' @param mh numero di osservazioni dello strato (vettore numerico 
+#'   di lunghezza uno).
+#' @param Nh stima degli effettivi dello strato (vettore numerico di 
+#'   lunghezza uno).
 #'   In pratica è la somma dei pesi di campionamento dello strato.
 #'
 #' @examples
@@ -208,7 +212,8 @@ vhat_strata5 <- function(x, mh, Nh) {
 #' Estimated variance of a total estimation, with strata
 #'
 #' @inheritParams vhat_strata4
-#' @param strata character string with the name of the column that contains the strata
+#' @param strata character string with the name of the column that
+#'   contains the strata
 #'
 #' @examples
 #' str(d)
@@ -230,7 +235,8 @@ vhat2 <- function(data, weights, mh, Nh, strata = NULL) {
   v_strata <- vector(mode = "numeric", length = length(strata_unique))
 
   for (i in seq_along(v_strata)) {
-    v_strata[[i]] <- vhat_strata4(data[strata_v == strata_unique[i], c(weights, mh, Nh)],
+    v_strata[[i]] <- vhat_strata4(
+      data[strata_v == strata_unique[i], c(weights, mh, Nh)],
       weights = weights, mh = mh, Nh = Nh
     )
   }
