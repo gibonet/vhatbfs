@@ -1,5 +1,3 @@
-
-
 #' Un data frame completamente inventato, con 100 osservazioni (righe)
 #' e 3 colonne.
 #'
@@ -10,5 +8,5 @@
 #'   \item{s}{strato}
 #'   \item{xcat}{una variabile categoriale (3 categorie)}
 #' }
-#' 
+#'
 "d"
