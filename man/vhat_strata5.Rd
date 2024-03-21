@@ -7,7 +7,7 @@
 vhat_strata5(x, mh, Nh)
 }
 \arguments{
-\item{x}{un vettore numerico con gli elementi di uno strato (di solito i 
+\item{x}{un vettore numerico con gli elementi di uno strato (di solito i
 pesi di campionamento)}
 
 \item{mh}{vettore con il numero di osservazioni dello strato (può essere
@@ -20,7 +20,7 @@ unico ripetuto). In pratica è la somma dei pesi di campionamento dello
 strato.}
 }
 \description{
-come \code{\link{vhat_strata3}} ma con nh e Nh che possono anche essere 
+come \code{\link{vhat_strata3}} ma con nh e Nh che possono anche essere
 vettori della stessa lunghezza di x (ma devono avere un valore unico...).
 }
 \examples{

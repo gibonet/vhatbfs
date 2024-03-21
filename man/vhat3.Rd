@@ -7,7 +7,7 @@
 vhat3(x, mh, Nh, strata)
 }
 \arguments{
-\item{x}{un vettore numerico con gli elementi di uno strato (di solito i 
+\item{x}{un vettore numerico con gli elementi di uno strato (di solito i
 pesi di campionamento)}
 
 \item{mh}{vettore con il numero di osservazioni dello strato (può essere

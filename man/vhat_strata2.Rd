@@ -7,13 +7,13 @@
 vhat_strata2(data, weights, mh, Nh)
 }
 \arguments{
-\item{data}{un data frame con il sottoinsieme dei dati per cui si vuole 
+\item{data}{un data frame con il sottoinsieme dei dati per cui si vuole
 stimare la varianza della stima di un totale. Da notare la differenza
 rispetto all'argomento data della funzione \code{\link{vhat_strata}},
 dove data rappresenta tutto il dataset, mentre qui rappresenta solo
 il sottoinsieme dei dati la funzione indicatrice vale uno.}
 
-\item{weights}{stringa con il nome della colonna dei dati che contiene i 
+\item{weights}{stringa con il nome della colonna dei dati che contiene i
 pesi individuali}
 
 \item{mh}{numero di osservazioni dello strato (vettore numerico di lunghezza uno).}
@@ -29,7 +29,8 @@ tmp <- n_strata(d, weights = "w", strata = "s")
 tmp
 tmp$s <- 1L:3L
 
-vhat_strata2(d[d$s == 2 & d$xcat == "cat2", ], 
-             weights = "w", mh = tmp$mh[2], Nh = tmp$Nh[2])
-             
+vhat_strata2(d[d$s == 2 & d$xcat == "cat2", ],
+  weights = "w", mh = tmp$mh[2], Nh = tmp$Nh[2]
+)
+
 }

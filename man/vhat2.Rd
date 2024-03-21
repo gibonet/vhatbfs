@@ -7,20 +7,20 @@
 vhat2(data, weights, mh, Nh, strata = NULL)
 }
 \arguments{
-\item{data}{un data frame con il sottoinsieme dei dati per cui si vuole 
+\item{data}{un data frame con il sottoinsieme dei dati per cui si vuole
 stimare la varianza della stima di un totale. Da notare la differenza
 rispetto all'argomento data della funzione \code{\link{vhat_strata}},
 dove data rappresenta tutto il dataset, mentre qui rappresenta solo
 il sottoinsieme dei dati la funzione indicatrice vale uno.}
 
-\item{weights}{stringa con il nome della colonna dei dati che contiene i 
+\item{weights}{stringa con il nome della colonna dei dati che contiene i
 pesi individuali}
 
-\item{mh}{nome della colonna dei dati che contiene il numero di osservazioni 
+\item{mh}{nome della colonna dei dati che contiene il numero di osservazioni
 dello strato. Deve essere un vettore numerico con lo stesso valore ripetuto
 il numero di righe dei dati.}
 
-\item{Nh}{nome della colonna dei dati che contiene la stima degli effettivi 
+\item{Nh}{nome della colonna dei dati che contiene la stima degli effettivi
 dello strato. Come mh, deve essere lo stesso valore ripetuto n volte, dove
 n è il numero di righe dei dati.}
 
