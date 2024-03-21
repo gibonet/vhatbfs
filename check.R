@@ -32,6 +32,8 @@ library(usethis)
 
 use_testthat()
 
+use_test("n_strata")
+
 
 # covr::package_coverage() ------------
 rstudioapi::restartSession()
