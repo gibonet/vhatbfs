@@ -10,9 +10,11 @@ vhat_strata3(x, mh, Nh)
 \item{x}{un vettore numerico con gli elementi di uno strato (di solito i
 pesi di campionamento)}
 
-\item{mh}{numero di osservazioni dello strato (vettore numerico di lunghezza uno).}
+\item{mh}{numero di osservazioni dello strato (vettore numerico 
+di lunghezza uno).}
 
-\item{Nh}{stima degli effettivi dello strato (vettore numerico di lunghezza uno).
+\item{Nh}{stima degli effettivi dello strato (vettore numerico di 
+lunghezza uno).
 In pratica è la somma dei pesi di campionamento dello strato.}
 }
 \description{

@@ -16,9 +16,11 @@ il sottoinsieme dei dati la funzione indicatrice vale uno.}
 \item{weights}{stringa con il nome della colonna dei dati che contiene i
 pesi individuali}
 
-\item{mh}{numero di osservazioni dello strato (vettore numerico di lunghezza uno).}
+\item{mh}{numero di osservazioni dello strato (vettore numerico di 
+lunghezza uno).}
 
-\item{Nh}{stima degli effettivi dello strato (vettore numerico di lunghezza uno).
+\item{Nh}{stima degli effettivi dello strato (vettore numerico di 
+lunghezza uno).
 In pratica è la somma dei pesi di campionamento dello strato.}
 }
 \description{

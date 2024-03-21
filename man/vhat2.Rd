@@ -24,7 +24,8 @@ il numero di righe dei dati.}
 dello strato. Come mh, deve essere lo stesso valore ripetuto n volte, dove
 n è il numero di righe dei dati.}
 
-\item{strata}{character string with the name of the column that contains the strata}
+\item{strata}{character string with the name of the column that
+contains the strata}
 }
 \description{
 Estimated variance of a total estimation, with strata

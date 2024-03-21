@@ -35,6 +35,13 @@ use_testthat()
 use_test("n_strata")
 use_test("vhat_strata")
 use_test("vhat")
+use_test("vhat_strata2")
+use_test("vhat_strata3")
+use_test("vhat_strata4")
+use_test("vhat_strata5")
+use_test("vhat2")
+use_test("vhat3")
+
 
 
 # covr::package_coverage() ------------
