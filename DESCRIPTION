@@ -10,4 +10,4 @@ Maintainer: Gibo <gibo.gaf@gmail.com>
 Depends: R (>= 2.10)
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.3.1
