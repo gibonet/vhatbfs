@@ -41,7 +41,7 @@ use_test("vhat_strata4")
 use_test("vhat_strata5")
 use_test("vhat2")
 use_test("vhat3")
-
+use_test("vhat_mean_strata")
 
 
 # covr::package_coverage() ------------
