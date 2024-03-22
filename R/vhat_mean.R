@@ -24,17 +24,29 @@
 # }
 
 
-#' Stima della varianza della stima di una media (di uno strato)
+# Stima della varianza della stima di una media (di uno strato)
+
+#' Estimate the variance of a mean estimate (of a strata)
 #'
-#' @param y vettore numerico
-#' @param weights vettore numerico di pesi
-#' @param nPSU uno scalare con il numero di osservazioni di tutto il campione
+#' @param y numeric vector
+#' @param weights numeric vector of weights
+#' @param nPSU number of observations of the sample (default: NULL)
+#' @param na.rm a logical value indicating whether NA values in y should be 
+#'   stripped before the computation proceeds. Default: TRUE
 #'
 #' @examples
 #' vhat_mean_strata(d$w, d$w, nPSU = nrow(d))
 #'
 #' @export
-vhat_mean_strata <- function(y, weights, nPSU = NULL) {
+vhat_mean_strata <- function(y, weights, nPSU = NULL, na.rm = TRUE) {
+  if (missing(weights)) weights <- rep(1, length(y))
+  
+  if (na.rm) {
+    k <- is.na(y) | is.na(weights)
+    y <- y[!k]
+    weights <- weights[!k]
+  }
+  
   ybar <- stats::weighted.mean(y, weights)
 
   x <- (y - ybar) * weights / sum(weights)
@@ -49,7 +61,13 @@ vhat_mean_strata <- function(y, weights, nPSU = NULL) {
 
 # Prova
 
-vhat_mean <- function(y, weights, nPSU = NULL, strata) {
+
+
+vhat_mean <- function(y, weights, nPSU = NULL, strata = NULL) {
+  stopifnot(length(y) == length(weights))
+  
+  if (is.null(strata)) strata <- rep(1, length(y))
+  
   strata_unique <- unique(strata)
   v_strata <- strata_weights <-
     vector(mode = "numeric", length = length(strata_unique))
@@ -58,10 +76,15 @@ vhat_mean <- function(y, weights, nPSU = NULL, strata) {
 
   for (i in seq_along(v_strata)) {
     k <- strata == strata_unique[i]
-    v_strata[[i]] <- vhat_mean_strata(y[k], weights[k])
+    
+    v_strata[[i]] <- vhat_mean_strata(y[k], weights[k])  # , nPSU = nPSU
+    
     strata_weights[[i]] <- sum(weights[k]) / Nhat
   }
 
   res <- sum(v_strata * strata_weights^2, na.rm = TRUE)
   res
 }
+
+# vhat_mean(d$w, d$w, strata = NULL)
+# vhat_mean(d$w, d$w, strata = d$s)
