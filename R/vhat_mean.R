@@ -8,12 +8,13 @@
 #' @param nPSU number of observations of the sample (default: NULL)
 #' @param na.rm a logical value indicating whether NA values in y should be 
 #'   stripped before the computation proceeds. Default: TRUE
+#' @param fpc finite population correction. Default: TRUE
 #'
 #' @examples
 #' vhat_mean_strata(d$w, d$w, nPSU = nrow(d))
 #'
 #' @export
-vhat_mean_strata <- function(y, weights, nPSU = NULL, na.rm = TRUE) {
+vhat_mean_strata <- function(y, weights, nPSU = NULL, na.rm = TRUE, fpc = TRUE) {
   if (missing(weights)) weights <- rep(1, length(y))
   
   if (na.rm) {
@@ -28,8 +29,8 @@ vhat_mean_strata <- function(y, weights, nPSU = NULL, na.rm = TRUE) {
 
   if (is.null(nPSU)) nPSU <- length(x)
 
-  scale <- nPSU / (nPSU - 1)
-
+  if (fpc) scale <- nPSU / (nPSU - 1) else scale <- 1L
+  
   as.numeric(crossprod(x * sqrt(scale)))
 }
 
