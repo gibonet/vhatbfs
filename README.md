@@ -4,4 +4,8 @@
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/vhatbfs)](http://cran.r-project.org/package=vhatbfs)
 
 
-Implementazione degli Intervalli di Confidenza per i Dati RS (sperimentale)
+Implementation of the FSO (Swiss Federal Statistical Office) formulas 
+for estimating confidence intervals with Swiss Structrual Survey data. 
+This mainly involves estimating confidence intervals of 
+totals (estimating the numerosity of a population). 
+
