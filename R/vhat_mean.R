@@ -37,7 +37,7 @@ vhat_mean_strata <- function(y, weights, nPSU = NULL, na.rm = TRUE, fpc = TRUE) 
 
 # Prova
 # nPSU is not used at the moment. Should it be different for each strata?
-vhat_mean <- function(y, weights, nPSU = NULL, strata = NULL) {
+vhat_mean <- function(y, weights, nPSU = NULL, na.rm = TRUE, fpc = TRUE, strata = NULL) {
   stopifnot(length(y) == length(weights))
   
   if (is.null(strata)) strata <- rep(1, length(y))
@@ -51,7 +51,7 @@ vhat_mean <- function(y, weights, nPSU = NULL, strata = NULL) {
   for (i in seq_along(v_strata)) {
     k <- strata == strata_unique[i]
     
-    v_strata[[i]] <- vhat_mean_strata(y[k], weights[k])  # , nPSU = nPSU
+    v_strata[[i]] <- vhat_mean_strata(y[k], weights[k], na.rm = na.rm, fpc = fpc)  # , nPSU = nPSU
     
     strata_weights[[i]] <- sum(weights[k]) / Nhat
   }
@@ -62,6 +62,7 @@ vhat_mean <- function(y, weights, nPSU = NULL, strata = NULL) {
 
 # vhat_mean(d$w, d$w, strata = NULL)
 # vhat_mean(d$w, d$w, strata = d$s)
+# vhat_mean(d$w, d$w, strata = d$s, fpc = FALSE)
 
 
 

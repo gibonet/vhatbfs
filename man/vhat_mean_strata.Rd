@@ -2,19 +2,24 @@
 % Please edit documentation in R/vhat_mean.R
 \name{vhat_mean_strata}
 \alias{vhat_mean_strata}
-\title{Stima della varianza della stima di una media (di uno strato)}
+\title{Estimate the variance of a mean estimate (of a strata)}
 \usage{
-vhat_mean_strata(y, weights, nPSU = NULL)
+vhat_mean_strata(y, weights, nPSU = NULL, na.rm = TRUE, fpc = TRUE)
 }
 \arguments{
-\item{y}{vettore numerico}
+\item{y}{numeric vector}
 
-\item{weights}{vettore numerico di pesi}
+\item{weights}{numeric vector of weights}
 
-\item{nPSU}{uno scalare con il numero di osservazioni di tutto il campione}
+\item{nPSU}{number of observations of the sample (default: NULL)}
+
+\item{na.rm}{a logical value indicating whether NA values in y should be 
+stripped before the computation proceeds. Default: TRUE}
+
+\item{fpc}{finite population correction. Default: TRUE}
 }
 \description{
-Stima della varianza della stima di una media (di uno strato)
+Estimate the variance of a mean estimate (of a strata)
 }
 \examples{
 vhat_mean_strata(d$w, d$w, nPSU = nrow(d))
