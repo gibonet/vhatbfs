@@ -5,7 +5,7 @@ Description: Implementation of the FSO (Swiss Federal Statistical Office)
     Structrual Survey data. 
     This mainly involves estimating confidence intervals of 
     totals (estimating the numerosity of a population).
-Version: 0.0.2
+Version: 0.0.2.9000
 License: GPL-2
 Author: Gibo <gibo.gaf@gmail.com>
 Maintainer: Gibo <gibo.gaf@gmail.com>
