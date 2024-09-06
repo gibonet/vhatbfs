@@ -15,7 +15,7 @@
 #' 
 #' 
 #' @name v_mean_strata
-#' @export
+#' @noRd
 vhat_mean_strata <- function(y, weights, nPSU = NULL, na.rm = TRUE, fpc = TRUE) {
   if (missing(weights)) weights <- rep(1, length(y))
   
@@ -34,16 +34,41 @@ vhat_mean_strata <- function(y, weights, nPSU = NULL, na.rm = TRUE, fpc = TRUE) 
   if (fpc) scale <- nPSU / (nPSU - 1) else scale <- 1L
   
   as.numeric(crossprod(x * sqrt(scale)))
-  
-  # Another trial
-  # https://stats.stackexchange.com/questions/525741/how-to-estimate-the-approximate-variance-of-the-weighted-mean
-  # nPSU / (nPSU - 1) / sum(weights)^2 * sum(weights^2 * (y - ybar)^2)
 }
 
 
 #' @rdname v_mean_strata
 #' 
-vhat_mean_strata2 <- function(y, weights, nPSU = NULL, na.rm = TRUE, fpc = TRUE) {
+#' @noRd
+vhat_mean_strata2 <- function(y, 
+                              weights, 
+                              nPSU = NULL, 
+                              na.rm = TRUE, 
+                              fpc = TRUE) {
+  if (missing(weights)) weights <- rep(1, length(y))
+  
+  if (na.rm) {
+    k <- is.na(y) | is.na(weights)
+    y <- y[!k]
+    weights <- weights[!k]
+  }
+  
+  ybar <- stats::weighted.mean(y, weights)
+  
+  if (is.null(nPSU)) nPSU <- length(y)
+  if (fpc) scale <- nPSU / (nPSU - 1) else scale <- 1L
+  
+  # Another trial (gives same result of vhat_mean_strata)
+  # https://stats.stackexchange.com/questions/525741/how-to-estimate-the-approximate-variance-of-the-weighted-mean
+  nPSU / (nPSU - 1) / sum(weights)^2 * sum(weights^2 * (y - ybar)^2)
+}
+# vhat_mean_strata2(d$w, d$w)
+# vhat_mean_strata(d$w, d$w)
+
+
+
+# Internal function, not ready yet...
+vhat_mean_strata_3_TEST <- function(y, weights, nPSU = NULL, na.rm = TRUE, fpc = TRUE) {
   if (missing(weights)) weights <- rep(1, length(y))
   
   if (na.rm) {
@@ -62,8 +87,6 @@ vhat_mean_strata2 <- function(y, weights, nPSU = NULL, na.rm = TRUE, fpc = TRUE)
   x <- y2_bar - y_bar^2
   x * sqrt(scale)
 }
-# vhat_mean_strata2(d$w, d$w)
-# vhat_mean_strata(d$w, d$w)
 
 
 
