@@ -1,7 +1,7 @@
 # vhatbfs
 
 [![R-CMD-check](https://github.com/gibonet/vhatbfs/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gibonet/vhatbfs/actions/workflows/R-CMD-check.yaml) 
-[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/vhatbfs)](http://cran.r-project.org/package=vhatbfs)
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/vhatbfs)](https://cran.r-project.org/package=vhatbfs)
 
 
 Implementation of the FSO (Swiss Federal Statistical Office) formulas 
