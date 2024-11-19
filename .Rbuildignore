@@ -7,3 +7,4 @@ check.R
 docs/
 vhatbfs-report.html
 lib/
+inst/garbage.R
