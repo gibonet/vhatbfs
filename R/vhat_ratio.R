@@ -1,3 +1,20 @@
+
+#' Variance of a ratio (of a strata)
+#' 
+#' @param numerator vector with the ratio numerator
+#' @param denominator vector with the ratio denominator
+#' @param weights sampling weights
+#' @param nh vector length (default: NULL)
+#' 
+#' @examples
+#' vhat_ratio_strata(
+#'   numerator = as.integer(d$s == 1),
+#'   denominator = as.integer(d$s %in% c(1, 2)),
+#'   weights = d$w
+#' )
+#' 
+#' 
+#' @noRd
 vhat_ratio_strata <- function(numerator, denominator, weights, nh = NULL) {
   Rhat <- sum(numerator * weights) / sum(denominator * weights)
 
