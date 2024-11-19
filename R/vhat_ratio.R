@@ -17,9 +17,13 @@ vhat_ratio_strata <- function(numerator, denominator, weights, nh = NULL) {
   v
 }
 
-# with(d, vhat_ratio_strata(numerator = (s == 1),
-#                           denominator = (s %in% c(1, 2)),
-#                           weights = w)
+# with(
+#   d, 
+#   vhat_ratio_strata(
+#     numerator = (s == 1),
+#     denominator = (s %in% c(1, 2)),
+#     weights = w
+#   )
 # )
 
 vhat_ratio <- function(numerator, denominator, weights, nh = NULL, strata) {
@@ -31,7 +35,9 @@ vhat_ratio <- function(numerator, denominator, weights, nh = NULL, strata) {
 
   for (i in seq_along(v_strata)) {
     k <- strata == strata_unique[i]
-    v_strata[[i]] <- vhat_ratio_strata(numerator[k], denominator[k], weights[k], nh[k])
+    v_strata[[i]] <- vhat_ratio_strata(
+      numerator[k], denominator[k], weights[k], nh[k]
+    )
     strata_weights[[i]] <- sum(weights[k]) / Nhat
   }
 
@@ -42,13 +48,21 @@ vhat_ratio <- function(numerator, denominator, weights, nh = NULL, strata) {
 
 # d$numeratore <- (d$s == 1)
 # d$denominatore <- (d$s %in% c(1, 2))
-# with(d, vhat_ratio(numerator = numeratore,
-#                    denominator = denominatore,
-#                    weights = w,
-#                    strata = xcat))
+# with(
+#   d, 
+#   vhat_ratio(
+#     numerator = numeratore,
+#     denominator = denominatore,
+#     weights = w,
+#     strata = xcat
+#   )
+# )
 
-# with(d, vhat_ratio(numerator = (s == 1),
-#                    denominator = (s %in% c(1, 2)),
-#                    weights = w,
-#                    strata = xcat)
+# with(
+#   d, vhat_ratio(
+#     numerator = (s == 1),
+#     denominator = (s %in% c(1, 2)),
+#     weights = w,
+#     strata = xcat
+#   )
 # )
