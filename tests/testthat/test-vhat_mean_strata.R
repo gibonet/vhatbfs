@@ -16,4 +16,10 @@ test_that("vhat_mean_strata works", {
   
   expect_false(is.na(res))
   
+  # Verify that unweighted variance of mean is equal
+  # to var(x) / length(x)
+  res <- vhat_mean_strata(d$w)
+  res2 <- var(d$w) / nrow(d)
+  expect_equal(res, res2)
+  
 })
